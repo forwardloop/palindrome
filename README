@@ -1,1 +1,9 @@
-# mlpalin
+Comments
+--------
+
+This Palidrome coding solution has a standard Scala project directory layout.
+
+How To Run
+----------
+
+sbt compile test run
