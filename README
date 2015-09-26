@@ -1,9 +1,38 @@
-Comments
---------
+-------------------------
+Design Decisions & Issues
+-------------------------
 
-This Palidrome coding solution has a standard Scala project directory layout.
+This Palidrome coding solution has a standard Scala project directory layout:
 
+src/main/scala/Palindrome.scala - contains implementation based on tail recursive functions
+
+src/test/scala/PalindromeSpec.scala - contains standard specification and unit tests (Specs2)
+
+
+
+
+--------------
+How To Compile
+--------------
+
+sbt compile
+
+
+-----------
+How To Test
+-----------
+
+sbt test
+
+
+----------
 How To Run
 ----------
 
-sbt compile test run
+sbt "run <input_string>"
+
+for example:
+
+sbt "run sqrrqabccbatudefggfedvwhijkllkjihxymnnmzpop"
+
+

@@ -15,6 +15,9 @@ class PalindromeSpec extends Specification { def is = s2"""
       'abccba': yes               $e2
       'abcccba': no               $e3
 
+   Find palindrome of given length in:
+      'abccba'
+
   """
 
   val s = "sqrrqabccbatudefggfedvwhijkllkjihxymnnmzpop"
