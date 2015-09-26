@@ -2,26 +2,20 @@ import scala.annotation.tailrec
 
 object Palindrome {
 
-
-  val s = "sqrrqabccbatudefggfedvwhijkllkjihxymnnmzpop"
-
-
-
   @tailrec
-  def findPalinLen(s: String, idx: Int, len: Int, acc: List[Palindrom]): List[Palindrom] = {
+  def findPalinLen(s: String, idx: Int, len: Int, acc: List[Palindrome]): List[Palindrome] = {
     if (idx + len > s.length) acc
     else {
       val s1 = s.substring(idx, idx + len)
-      val acc1: List[Palindrom] =
-        if (isPalindrome(s1) && isNew(s1, acc)) Palindrom(s1, idx, len) :: acc
+      val acc1: List[Palindrome] =
+        if (isPalindrome(s1) && isNew(s1, acc)) Palindrome(s1, idx, len) :: acc
         else acc
       findPalinLen(s, idx + 1, len, acc1)
     }
   }
 
   @tailrec
-  def findPalin(s: String, len: Int, acc: List[Palindrom]): List[Palindrom] = {
-
+  def findPalin(s: String, len: Int, acc: List[Palindrome]): List[Palindrome] = {
     if (len <= 1 || acc.size == 3) acc
     else {
       println(s"findPalin $len acc $acc")
@@ -39,23 +33,9 @@ object Palindrome {
     } else false
 
 
-  def isNew(s: String, acc: List[Palindrom]): Boolean = acc.find(_.txt.contains(s)).isEmpty
+  def isNew(s: String, acc: List[Palindrome]): Boolean = acc.find(_.txt.contains(s)).isEmpty
 
 
-  //findPalin(s, Nil)
-  isPalindrome("abc")
-  isPalindrome("abccba")
-  isPalindrome("abcccba")
-
-  findPalinLen("aasdfsaabccbaasdfdsfdeffedddfdfd", 0, 4, Nil)
-
-  val result: Stream[Palindrom] = findPalin(s, s.length - s.length % 2, Nil).toStream
-  val r3 = result.take(3).toList
-  //val result: Stream[ (String, Int, List[Palindrom]) => List[Palindrom] ] = Stream(findPalin)
-  //val r3 = result map (f => f(s, s.length - s.length % 2, Nil)) take(3)
-  val vv = r3.mkString("\n\n")
-  println("===========")
-  println(vv)
 
   def main(args: Array[String]): Unit = {
     println("Hello, world!")
@@ -63,7 +43,7 @@ object Palindrome {
 
 }
 
-case class Palindrom(txt: String, idx: Int, len: Int) {
+case class Palindrome(txt: String, idx: Int, len: Int) {
 
   override def toString() = s"Text: $txt, Index: $idx, Length: $len"
 
