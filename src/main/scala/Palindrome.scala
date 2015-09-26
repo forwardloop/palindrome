@@ -5,12 +5,7 @@ object Palindrome {
 
   val s = "sqrrqabccbatudefggfedvwhijkllkjihxymnnmzpop"
 
-  //val s = "sqrrqabccbatu"
 
-  val len = s.length
-  val halfLen = len / 2
-  val s1 = "abc"
-  val s2 = s1.reverse
 
   @tailrec
   def findPalinLen(s: String, idx: Int, len: Int, acc: List[Palindrom]): List[Palindrom] = {
@@ -61,6 +56,10 @@ object Palindrome {
   val vv = r3.mkString("\n\n")
   println("===========")
   println(vv)
+
+  def main(args: Array[String]): Unit = {
+    println("Hello, world!")
+  }
 
 }
 
