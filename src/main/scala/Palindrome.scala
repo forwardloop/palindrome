@@ -17,16 +17,15 @@ object Palindrome {
     else {
       val s1 = s.substring(idx, idx + len)
       val accum1 = if(isPalindrome(s1) && !accum.exists(_.txt.contains(s1))) Palindrome(s1, idx, len)::accum else accum
-
       findPalindromesWithLength(s, idx + 1, len, accum1)
     }
   }
 
-  def isPalindrome(s: String): Boolean =
-    if (s.length % 2 == 0) {  //odd length strings are not palindromes
-      val half = s.length / 2
-      s.take(half) == s.takeRight(half).reverse
-    } else false
+  def isPalindrome(s: String): Boolean = {
+    val s1 = s.toLowerCase filterNot (" ,!'".toSet)
+    val half = s1.length / 2
+    s1.take(half) == s1.takeRight(half).reverse
+  }
 
 
   def main(args: Array[String]): Unit =
