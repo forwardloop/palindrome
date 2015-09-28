@@ -32,7 +32,7 @@ object Palindrome {
     if(args.length==0) println("Provide input string")
     else findLongestPalindromes(args(0), limit = 3) match {
         case Nil => println("No palindromes found")
-        case ps  => println(s"\n${ps mkString ("\n\n")}")
+        case pds => println(s"\n${pds mkString ("\n\n")}")
        }
 }
 
