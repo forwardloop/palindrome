@@ -11,13 +11,14 @@ class PalindromeSpec extends Specification { def is = s2"""
       third longest 'abccba'             $e6
 
    Check if palindromes:
-      'abc': no                   $e1
-      'abccba': yes               $e2
-      'abcccba': no               $e3
+      'abc': no                          $e1
+      'abccba': yes                      $e2
+      'abcccba': no                      $e3
+      'A man, a plan, a canal, Panama!'  $e9
 
    Find palindrome of given length in:
       'aBc, cbA'                              $e7
-      'aA man, a plan, a canal, Panama!b'       $e8
+      'aA man, a plan, a canal, Panama!b'     $e8
 
   """
 
@@ -25,13 +26,15 @@ class PalindromeSpec extends Specification { def is = s2"""
 
   val (expP1, expP2, expP3) = (Palindrome("hijkllkjih", 23, 10), Palindrome("defggfed", 13, 8), Palindrome("abccba", 5, 6))
 
-  val (s1, s2, s3, s4, s5) = ("abc", "abccba", "abcccba", "aBc, cbA", "aA man, a plan, a canal, Panama!b")
+  val (s1, s2, s3, s4, s5) = ("abc", "abccba", "abcccba", "aBc, cbA", "A man, a plan, a canal, Panama!")
 
   def e1 = isPalindrome(s1) must beFalse
 
   def e2 = isPalindrome(s2) must beTrue
 
   def e3 = isPalindrome(s3) must beFalse
+
+  def e9 = isPalindrome(s5) must beTrue
 
   def e4 = findLongestPalindromes(s, 3).head must beEqualTo(expP1)
 
@@ -41,6 +44,6 @@ class PalindromeSpec extends Specification { def is = s2"""
 
   def e7 = findLongestPalindromes(s4).head must beEqualTo(Palindrome(s4, 0, s4.length))
 
-  def e8 = findLongestPalindromes(s5).head must beEqualTo(Palindrome("A man, a plan, a canal, Panama", 1, s5.length - 3))
+  def e8 = findLongestPalindromes("a" + s5 + "b").head must beEqualTo(Palindrome("A man, a plan, a canal, Panama", 1, s5.length - 3))
 
 }
