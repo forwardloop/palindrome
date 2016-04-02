@@ -1,6 +1,6 @@
 ## Task
 
-[Coding challenge instructions](./doc/CHALLENGE.md)
+[Coding challenge](./doc/CHALLENGE.md)
 
 ## Design Decisions & Issues
 
