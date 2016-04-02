@@ -1,7 +1,8 @@
 import org.specs2._
 import Palindrome._
 
-class PalindromeSpec extends Specification { def is = s2"""
+class PalindromeSpec extends Specification {
+  def is = s2"""
 
    This is the specification for the palindrome coding challenge.
 
@@ -59,7 +60,7 @@ class PalindromeSpec extends Specification { def is = s2"""
 
   def e12 = {
     val pds = findPalindromesWithLength(s2, 0, 4, Nil)
-    pds.size===1 and pds.head===Palindrome("bccb", 1, 4)
+    pds.size === 1 and pds.head === Palindrome("bccb", 1, 4)
   }
 
 }
